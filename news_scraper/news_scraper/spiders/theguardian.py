@@ -21,6 +21,7 @@ class TheguardianSpider(CrawlSpider):
         articleTitle = response.xpath("normalize-space(//h1/ text())").get()
         articleCategory = response.xpath("normalize-space(//a[@data-link-name='article section'] / * / text())").get()
         articleAuthor = response.xpath("normalize-space(//a[@rel ='author'] / text())").get()
+        articleTextList = ""
         articleText = ""
         articleType = ""
 
@@ -31,22 +32,28 @@ class TheguardianSpider(CrawlSpider):
             articleType = "Live"
 
         else:
-            articleText = response.xpath("//div[contains(@class , 'article-body-commercial-selector')] / p / text()").getall()
+            articleTextList = response.xpath("//div[contains(@class , 'article-body-commercial-selector')] / p / text()").getall()
 
             articleType = "Normal"
 
-            if (not articleText):
-                articleText = response.xpath("//*[contains(@class , 'content__standfirst content__standfirst--gallery')] / p / text()").getall()
+            if (not articleTextList):
+                articleTextList = response.xpath("//*[contains(@class , 'content__standfirst content__standfirst--gallery')] / p / text()").getall()
                 articleType = "Pictures"
 
-            if (not articleText):
-                articleText = response.xpath("//*[@class = 'content__standfirst'] / p[1] / text()").getall()
+            if (not articleTextList):
+                articleTextList = response.xpath("//*[@class = 'content__standfirst'] / p[1] / text()").getall()
                 articleType = "Video"
 
-            if (not articleText):
-                articleText = "No Text Content"
+            if (not articleTextList):
+                articleTextList = "No Text Content"
                 articleType = "Unidentifed Type"
         
+
+        for p in articleTextList:
+            if(articleType != "Live"):
+                articleText += p + "\n"
+
+
         # --------------------------------------------------------------------------------------------------------
 
 
@@ -75,6 +82,7 @@ class TheguardianSpider(CrawlSpider):
             articleAuthor = "No Author"
 
         # --------------------------------------------------------------------------------------------------------
+
 
         yield {
 
