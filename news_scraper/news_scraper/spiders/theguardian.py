@@ -76,8 +76,6 @@ class TheguardianSpider(CrawlSpider):
 
         # --------------------------------------------------------------------------------------------------------
 
-        print("PAGE #", response.xpath("//span[@aria-label = 'Current page'] / text()").get())
-
         yield {
 
             "Url" : articleUrl,
