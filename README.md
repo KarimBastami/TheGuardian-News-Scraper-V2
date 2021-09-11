@@ -27,7 +27,7 @@ Mongo Queries:
   
 ### Main Features:
   - Supports link crawling and iterating through pagination to gather all the articles
-  - Proper identification of article types and accordingly scraping criteria changes
+  - Proper identification of article types and accordingly changing scraping criteria
   - Simple console based user interface to retrieve and read articles based on the user's criteria of choice
   
  
