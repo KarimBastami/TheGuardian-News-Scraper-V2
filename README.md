@@ -24,6 +24,11 @@ Scraper Part:
 Mongo Queries:
   - Run main.py and a console based user interface for article searching should appear 
  
+Custom MongoDB Client:
+  - If you wish to upload to ur own MongoDB Database then do the following
+    - Navigate to the Pipeline.py file 
+    - Replace <br/> ``` self.client = pymongo.MongoClient("mongodb+srv://Scrapy_Scraper:BNPKPhu6WpStzAfw@theguardianarticles.zaufd.mongodb.net/TheGuardianArticles?retryWrites=true&w=majority") ``` <br/> with your own Mongo client 
+
   
 ### Main Features:
   - Supports link crawling and iterating through pagination to gather all the articles
