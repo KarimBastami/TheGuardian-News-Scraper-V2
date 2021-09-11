@@ -27,7 +27,12 @@ Mongo Queries:
 Custom MongoDB Client:
   - If you wish to upload to ur own MongoDB Database then do the following
     - Navigate to the Pipeline.py file 
-    - Replace <br/> ``` self.client = pymongo.MongoClient("mongodb+srv://Scrapy_Scraper:BNPKPhu6WpStzAfw@theguardianarticles.zaufd.mongodb.net/TheGuardianArticles?retryWrites=true&w=majority") ``` <br/> with your own Mongo client 
+    - Replace
+    
+     ```python
+     self.client = pymongo.MongoClient("mongodb+srv://Scrapy_Scraper:BNPKPhu6WpStzAfw@theguardianarticles.zaufd.mongodb.net/TheGuardianArticles?retryWrites=true&w=majority") 
+     ```
+     with your own Mongo client 
 
   
 ### Main Features:
