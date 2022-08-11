@@ -1,4 +1,4 @@
-# Scrapy_News_Scraper
+# TheGuardian-News-Scraper-V2
 
 - A better and improved version of my news scraper using Scrapy spiders and MongoDB 
 - This scraper only targets articles from TheGuardian.com
